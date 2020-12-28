@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO">
+    <Appenders>
+        <Console name="default.console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %x %-5level %logger{36} - %msg%n"/>
+        </Console>
+        <RandomAccessFile name="default.file" fileName="logs/run-${date:yyyy-MM-dd}.log">
+            <PatternLayout pattern="%d{ISO8601} [%t] %x %-5level %logger{-2} - %msg%n"/>
+        </RandomAccessFile>
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="default.console"/>
+            <AppenderRef ref="default.file"/>
+        </Root>
+    </Loggers>
+</Configuration>
