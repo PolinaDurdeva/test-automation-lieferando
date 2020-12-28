@@ -12,6 +12,8 @@ target/
 **/*.log
 
 # Allure
-.allure
-build/
-logs/
+*/.allure
+*/build/
+*/logs/
+report/
+selenoid/
