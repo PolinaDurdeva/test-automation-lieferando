@@ -1,3 +1,4 @@
+#!/bin/bash
 docker pull selenoid/vnc:chrome_86.0
 docker pull aerokube/selenoid:latest-release
 docker pull aerokube/selenoid-ui:1.4.3
