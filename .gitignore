@@ -12,7 +12,7 @@ target/
 **/*.log
 
 # Allure
-*/.allure
+*.allure
 */build/
 */logs/
 report/
