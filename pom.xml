@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>de.lifernado</groupId>
+  <artifactId>test-automation-liferando</artifactId>
+  <packaging>pom</packaging>
+  <version>1.0</version>
+  <name>test-automation-liferando</name>
+  <profiles>
+    <profile>
+      <id>default</id>
+      <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <modules>
+        <module>ui-test</module>
+        <module>api-test</module>
+      </modules>
+    </profile>
+  </profiles>
+
+  <properties>
+    <selenide.version>5.16.2</selenide.version>
+    <lombok.version>1.18.10</lombok.version>
+    <jdk.version>13</jdk.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <log4j.version>1.2.17</log4j.version>
+    <aspectj.version>1.9.5</aspectj.version>
+    <allure.version>2.13.5</allure.version>
+    <allure-maven.version>2.10.0</allure-maven.version>
+    <maven-surfine-plugin.version>2.21.0</maven-surfine-plugin.version>
+    <log4j-core.version>2.13.3</log4j-core.version>
+    <log4j-api.version>2.13.3</log4j-api.version>
+    <log4j-slf4j-impl.version>2.13.3</log4j-slf4j-impl.version>
+    <owner.version>1.0.4</owner.version>
+  </properties>
+
+  <dependencies>
+
+    <dependency>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-testng</artifactId>
+      <version>${allure.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-slf4j-impl</artifactId>
+      <version>${log4j-slf4j-impl.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-api</artifactId>
+      <version>${log4j-api.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.logging.log4j</groupId>
+      <artifactId>log4j-core</artifactId>
+      <version>${log4j-core.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.aspectj</groupId>
+      <artifactId>aspectjweaver</artifactId>
+      <version>${aspectj.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.aeonbits.owner</groupId>
+      <artifactId>owner</artifactId>
+      <version>${owner.version}</version>
+    </dependency>
+
+  </dependencies>
+
+  <build>
+  <plugins>
+
+  <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-compiler-plugin</artifactId>
+    <version>3.8.0</version>
+    <configuration>
+      <source>${jdk.version}</source>
+      <target>${jdk.version}</target>
+      <encoding>${project.build.sourceEncoding}</encoding>
+    </configuration>
+  </plugin>
+
+    <plugin>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-maven</artifactId>
+      <version>${allure-maven.version}</version>
+      <configuration>
+        <reportVersion>${allure.version}</reportVersion>
+        <resultsDirectory>${project.build.directory}/allure-results</resultsDirectory>
+        <reportDirectory>${project.build.directory}/allure-reports</reportDirectory>
+      </configuration>
+    </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${maven-surfine-plugin.version}</version>
+        <configuration>
+          <argLine>
+            -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+            --enable-preview
+          </argLine>
+          <systemPropertyVariables>
+            <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
+          </systemPropertyVariables>
+        </configuration>
+        <dependencies>
+          <dependency>
+            <groupId>org.aspectj</groupId>
+            <artifactId>aspectjweaver</artifactId>
+            <version>${aspectj.version}</version>
+          </dependency>
+        </dependencies>
+      </plugin>
+  </plugins>
+  </build>
+</project>
