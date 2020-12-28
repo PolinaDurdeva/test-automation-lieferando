@@ -20,23 +20,23 @@ Tools:
 
 ## How to run 
 
-You can run tests with 3 different ways using:
+You can run tests in 3 different ways using:
 - IDE
 - maven (version 3.6.3)
 - docker (version 19.03.8 or higher)
 
 ### I. Run using IDE 
 
-1. Open project in IDE
+1. Open the project in IDE
 2. Resolve dependencies
 3. Navigate to a suite you want to run:
     - ui-test/src/test/resources/suites/ui-suite.xml 
     - api-test/src/test/resources/suites/api-suite.xml
-4. click a right button and run selected suite
+4. Click the right button and run selected suite
  
  ### II. Run using maven
  
-1. Navigate to test-automation-lieferando project 
+1. Navigate to test-automation-lieferando directory 
 2. Run both suites using this command:
  
  ```
@@ -51,7 +51,7 @@ cd ui-test
 
 mvn allure:serve
 ```  
-A link to the report will be printed out in terminal
+A URL to the report will be printed out in terminal (sometimes a browser opens automatically)
 
 ### III. Run using docker
 
@@ -72,14 +72,14 @@ docker-compose up
 Generate report for **ui-test**: 
 http://localhost:5050/allure-docker-service/generate-report?project_id=ui-test
 
-See latest report: 
+See the latest report: 
 http://localhost:5050/allure-docker-service/latest-report?project_id=ui-test
 
 
 Generate report for **api-test**: 
 http://localhost:5050/allure-docker-service/generate-report?project_id=api-test
 
-See latest report: 
+See the latest report: 
 http://localhost:5050/allure-docker-service/latest-report?project_id=api-test
 
 ________________   
