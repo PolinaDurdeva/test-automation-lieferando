@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <parent>
+    <artifactId>test-automation-liferando</artifactId>
+    <groupId>de.lifernado</groupId>
+    <version>1.0</version>
+  </parent>
+
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>ui-test</artifactId>
+
+  <properties>
+    <selenide.version>5.16.2</selenide.version>
+    <aspectj.version>1.9.5</aspectj.version>
+    <allure.version>2.13.5</allure.version>
+    <allure-maven.version>2.10.0</allure-maven.version>
+  </properties>
+
+  <dependencies>
+
+    <dependency>
+      <groupId>com.codeborne</groupId>
+      <artifactId>selenide</artifactId>
+      <version>${selenide.version}</version>
+    </dependency>
+
+    <dependency>
+      <groupId>io.qameta.allure</groupId>
+      <artifactId>allure-selenide</artifactId>
+      <version>${allure.version}</version>
+    </dependency>
+
+  </dependencies>
+</project>
