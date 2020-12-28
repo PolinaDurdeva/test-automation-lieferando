@@ -36,7 +36,7 @@ You can run tests with 3 different ways using:
  
  ### II. Run using maven
  
-1. Navigate to test-automation-liferando project 
+1. Navigate to test-automation-lieferando project 
 2. Run both suites using this command:
  
  ```
